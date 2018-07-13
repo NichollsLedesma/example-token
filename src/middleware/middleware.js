@@ -11,11 +11,8 @@ const middleware = {
             req.token=token;
             next();
         }
-
-
-
-
     }
+    // aca mas midd
 }
 
 module.exports = middleware;
