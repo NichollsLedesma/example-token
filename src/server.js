@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 
 
 const routes = require('./routes/routes');
+const adminRoutes = require('./routes/admin');
 
 // config
 mongoose.connect('mongodb://localhost:27017/test', { useNewUrlParser: true })
@@ -23,6 +24,7 @@ app.use(morgan('dev'));
 
 // routes
 app.use('/', routes);
+app.use('/admin', adminRoutes);
 
 // run
 app.listen(app.get('port'), ()=> {
