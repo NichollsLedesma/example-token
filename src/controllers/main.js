@@ -7,10 +7,18 @@ exports.index = (req, res) => {
     res.render('index');
 }
 
+exports.login = (req, res) => {
+    res.render('login');
+}
+
+exports.usuario = (req,res)=>{
+    res.render('addUser');
+}
+
 exports.addUser = async (req, res) => {
     let user = new User(req.body);
     let elUser = await user.save();
-    res.send(elUser);
+    res.redirect('/login');
 }
 
 exports.doLogin = async (req, res) => {
@@ -27,7 +35,8 @@ exports.doLogin = async (req, res) => {
     let token = jwt.sign(laData, passtoken, {
         expiresIn: 60 * 10 // 10 min
     });
-    res.send(token);
+    // res.send(token);
+    res.render('admin', {token: token})
 }
 
 exports.admin = (req, res) => {
