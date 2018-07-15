@@ -1,22 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Usuario</title>
-</head>
-<body>
-    <form action="/user" method="post">
-        <label for="apellido">Apellido</label>
-        <input type="text" id="apellido" name="apellido" placeholder="Apellido...">
-        <label for="nombre">Nombre</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Nombre...">
-        <label for="nick">Nick</label>
-        <input type="text" id="nick" name="nick" placeholder="Nick...">
-        <label for="pass">Password</label>
-        <input type="password" id="pass" name="pass" placeholder="Password...">
-        <button type="submit">Agregar</button>
+<% include commons/header %>
+
+<h1>Agregar un usuario nuevo</h1>
+    <form action="/user" method="post" id="formAddUser">
+        <div class="form-group">
+            <label for="apellido">Apellido</label>
+            <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido..." required>
+        </div>
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" class="form-control" name="nombre" placeholder="Nombre..." required>
+        </div>
+        <div class="form-group">
+            <label for="nick">Nick</label>
+            <input type="text" id="nick" name="nick" class="form-control" placeholder="Nick..." required>
+        </div>
+        <div class="form-group">
+            <label for="pass">Password</label>
+            <input type="password" id="pass" name="pass" class="form-control" placeholder="Password..." required>
+        </div>
+
+        <button type="submit" class="btn btn-info" id="btnAddUser">Agregar</button>
     </form>
-</body>
-</html>
+<% include commons/footer %>

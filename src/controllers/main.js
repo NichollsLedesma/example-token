@@ -4,15 +4,15 @@ const jwt = require('jsonwebtoken');
 const passtoken = 'LaPassSecret';
 
 exports.index = (req, res) => {
-    res.render('index');
+    res.render('index', {title: 'Inicio'});
 }
 
 exports.login = (req, res) => {
-    res.render('login');
+    res.render('login', {title: 'Login'});
 }
 
 exports.usuario = (req,res)=>{
-    res.render('addUser');
+    res.render('addUser', {title:'Agregar Usuario'});
 }
 
 exports.addUser = async (req, res) => {
@@ -35,15 +35,19 @@ exports.doLogin = async (req, res) => {
     let token = jwt.sign(laData, passtoken, {
         expiresIn: 60 * 10 // 10 min
     });
-    // res.send(token);
-    res.render('admin', {token: token})
+    res.send({token: token});
+    
+    // res.redirect('/admin');
+    // res.render('admin', {title: 'Admin', token: token})
 }
-
 exports.admin = (req, res) => {
     let token = req.token;
     jwt.verify(token, passtoken, (err, user) => {
-        (err) ?
-            res.status(401).send({ error: "Token inválido." }) :
-            res.send(user);
+        if (err) res.status(401).send({ error: "Token inválido." });
+        
+        console.log(user);
+        // res.send(user);
+        res.render('admin', {title: 'Admin', token: token, dataUser: user})
+
     });
 }

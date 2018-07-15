@@ -1,18 +1,22 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Index</title>
-</head>
-<body>
-    <h1>Test Token</h1>
+<% include commons/header; %>
+<div class="card">
+    <div class="card-body mx-auto">
+        <h1 class="card-title">Test Token</h1>
+        <h2 class="card-text">Algunas vistas para evitar el postman</h2>
+        <hr>
+        <div class="row">
+            <div class="col-6">
+                <p class="card-text">Acceder</p>
+                <a href="/login" type="button" class="btn btn-info">Login</a>
 
-    <h2>Algunas vistas para evitar el postman</h2>
+            </div>
+            <div class="col-6">
+                <p class="card-text">Agregar Usuario</p>
+                <a href="/user" type="button" class="btn btn-info">Agregar Usuario</a>
 
-    <p>Acceder</p>
-    <a href="/login" type="button">Login</a>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <p>Agregar Usuario</p>
-    <a href="/user" type="button">Agregar Usuario</a>
-</body>
-</html>
+<% include commons/footer; %>
